@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#Sensitive Info
+/backend/vars.js
+/backend/node_modules
+

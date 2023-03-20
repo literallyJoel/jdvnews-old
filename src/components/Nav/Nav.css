@@ -1,0 +1,14 @@
+#navbar{
+    background-color: #A50010;
+}
+#navbutton{
+    background-color: #A50010 !important;
+    border-color: white !important;
+}
+
+#navbutton:hover{
+    background-color: white !important;
+    color:#A50010 !important;
+    border-color: white !important;
+
+}

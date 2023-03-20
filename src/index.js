@@ -4,12 +4,38 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import keycloak from './Keycloak';
+import { ReactKeycloakProvider } from "@react-keycloak/web";
+import "bootstrap/dist/css/bootstrap.min.css"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from './pages/Error/ErrorPage';
+import Home from './pages/Home/Home';
+import Profile from './pages/Profile/Profile';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage/>,
+    children:[
+      {
+        path: "/",
+        element: <Home/>
+      },
+      {
+        path: "/profile",
+        element: <Profile/>
+      }
+    ]
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ReactKeycloakProvider authClient={keycloak}>
+    <RouterProvider router={router} />
+  </ReactKeycloakProvider>
+
 );
 
 // If you want your app to work offline and load faster, you can change

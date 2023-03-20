@@ -2,6 +2,8 @@ import { useKeycloak } from "@react-keycloak/web";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import "./Nav.css";
 
+
+//This is the dropdown button that shows when the user is logged in. In it's own file for neatness.
 const LogoutButton = () =>{
     const { keycloak, initialized } = useKeycloak();
 

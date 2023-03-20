@@ -6,8 +6,10 @@ import LogoutButton from "./LogoutButton";
 import "./Nav.css";
 
 const Nav = () => {
+    //Used so we can see if the user is logged in
     const {keycloak} = useKeycloak();
 
+    //Returns the navbar, checks if the user is logged in or not and shows the appropriate button.
     return (
       <Navbar id="navbar" variant="dark" expand="md">
         <Container>

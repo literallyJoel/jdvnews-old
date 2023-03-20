@@ -12,6 +12,7 @@ import ErrorPage from './pages/Error/ErrorPage';
 import Home from './pages/Home/Home';
 import Profile from './pages/Profile/Profile';
 
+//This controls routing for the app.
 const router = createBrowserRouter([
   {
     path: "/",

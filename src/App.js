@@ -6,6 +6,7 @@ import './App.css';
 import Nav from './components/Nav/Nav';
 
 function App() {
+  //We use this to access keycloak info such as if the uesr is logged in, and if they are, their information from their token.
   const {keycloak} = useKeycloak();
 
   useEffect(() =>{

@@ -5,7 +5,8 @@ import AuthenticatedFeed from "./AuthenticatedFeed";
 import UnauthenticatedFeed from "./UnauthenticatedFeed";
 const Home = () => {
     const { keycloak } = useKeycloak();
-
+    
+    //If the user is not logged in it gives a little prompt at the top encouraging it.
     const LoginBox = () => {
         if (!   keycloak.authenticated) {
             return (
@@ -17,7 +18,7 @@ const Home = () => {
     }
 
     
-
+    //Checks if the user is authenticated and if they aren't, it shows a generic news feed, else shows their customised one.
     return (
         <Container>
             <div className="headerText">Today's News</div>

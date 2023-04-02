@@ -1,0 +1,75 @@
+
+#userName{
+    text-align: center;
+    margin-top: 2%;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #A50010;
+}
+
+#rssTitle{
+    text-align: center;
+    color:#A50010;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#rssFeeds{
+    border: solid #A50010;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1rem;
+}
+
+#feedButton{
+    margin-bottom: 2%;
+    color: #A50010;
+    background-color: white;
+    border-color: #A50010;
+}
+
+#feedButton:hover{
+    color:white;
+    background-color: #A50010;
+
+}
+
+#feedButtons{
+    text-align: right;
+}
+
+#feedForm{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+#formButtons{
+   text-align: right;
+   margin-right: 10%;
+}
+
+#updateButton{
+    background-color: transparent;
+    color:#A50010;
+    border-color: #A50010;
+}
+
+#updateButton:hover{
+    background-color: #A50010;
+    color: white;
+
+}
+#deleteButton{
+    margin-left: 2%;
+    background-color: #A50010;
+    color: white;
+    border-color: #A50010;
+    
+}
+
+#deleteButton:hover{
+    background-color: #73000b;
+}

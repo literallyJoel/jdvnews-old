@@ -11,6 +11,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from './pages/Error/ErrorPage';
 import Home from './pages/Home/Home';
 import Profile from './pages/Profile/Profile';
+import FeedEditor from './pages/Profile/Pages/FeedEditor/FeedEditor';
+import FeedView from './pages/Profile/Pages/FeedEditor/Components/FeedView';
 
 //This controls routing for the app.
 const router = createBrowserRouter([
@@ -26,6 +28,16 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile/>
+      },
+      {
+        path: "/profile/feeds",
+        element: <FeedEditor/>,
+        children:[
+          {
+            path: "id/:feedID",
+            element: <FeedView/>
+          }
+        ]
       }
     ]
   },

@@ -1,17 +1,17 @@
-.headerText{
+.headerText {
     font-size: 4rem;
     text-align: center;
     font-weight: bold;
     color: #A50010;
 }
 
-#loginBox{
+#loginBox {
     background-color: #A50010;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
     color: white;
-    height: 3   vw;
+    height: 3 vw;
     min-height: 60px;
     min-width: 550px;
     display: flex;
@@ -22,9 +22,57 @@
     font-size: 1rem;
 }
 
-.newsTitle{
-    font-size: 1rem;
-    color: #A50010;
+.newsBlock {
+    border: solid;
+    border-color: #A50010;
     margin-top: 2%;
-    font-weight: bold;
+    margin-bottom: 2%;
+    padding: 2% 2% 2% 2%;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.newsLogo{
+    width: 200px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.pagination .page-link {
+    color: #A50010;
+}
+
+.pagination .page-link:hover {
+    background-color: #A50010;
+    color: white;
+}
+
+.active .page-link{
+    background-color: #A50010 !important;
+    color: white !important;
+    border-color: #A50010;
+}
+
+#newsCard {
+    padding: 10% 10% 10% 10%;
+    margin-bottom: 10%;
+    height: 100%;
+    border-color: #A50010;
+}
+
+#roundupsubheader {
+    font-size: 0.5rem;
+    color: grey;
+}
+
+#cardButton {
+    background-color: transparent;
+    color: #A50010;
+    border-color: #A50010;
+}
+
+#cardButton:hover {
+    background-color: #A50010;
+    color: white;
+
 }

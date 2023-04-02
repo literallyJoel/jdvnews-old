@@ -11,7 +11,7 @@ const LogoutButton = () =>{
     return(
         <DropdownButton id="navbutton" title={keycloak.tokenParsed.name}>
     
-            <Dropdown.Item>My Profile</Dropdown.Item>
+            <Dropdown.Item href="/profile">My Profile</Dropdown.Item>
             <Dropdown.Item onClick={() => keycloak.logout()}>Logout</Dropdown.Item>
         </DropdownButton>
     )

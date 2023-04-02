@@ -1,0 +1,8 @@
+{
+    "realm": "JDVSite",
+    "auth-server-url": "https://cloak.jdvivian.co.uk/auth",
+    "ssl-required": "external",
+    "resource": "news.jdvivian.co.uk",
+    "public-client": true,
+    "confidential-port": 0
+  }

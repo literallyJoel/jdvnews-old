@@ -1,0 +1,81 @@
+#sidebar{
+    margin-top: 56.4px;
+    height: calc(100vh - 56.4px);  
+    width: 15%; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0; 
+    background-color: #A50010; 
+    transition: .5s ease; 
+    overflow-x: hidden; 
+    padding-top: 20px; 
+    display: flex; 
+    flex-direction: 
+    column; align-items: center;
+
+    
+}
+
+#feedView{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    margin-top: 70px;
+    height: calc(100vh - 70px);  
+}
+.sidebarHeader{
+    padding-bottom: 0.5rem;
+    color: white;
+    border-bottom: solid white;
+    width: 100%;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: calc(0.5rem + 0.5vw);
+    text-align: center !important;
+}
+
+
+.sidebarItem{
+    cursor: pointer;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: solid white;
+    width: 100%;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    font-size: calc(0.5rem + 0.5vw);
+}
+
+.sidebarItem a{
+    color: white;
+    text-decoration: none;
+}
+.sidebarItem:hover {
+    background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+  }
+
+.Active{
+    background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+}
+.itemRow{
+    justify-content: center;
+}
+
+#DeleteSuccessAlert{
+    width: 40%;
+    margin-left: auto;
+    margin-right:auto;
+    text-align: center;
+    border-radius: 2rem
+}
+
+#DeleteFailureAlert{
+    width: 40%;
+    margin-left: auto;
+    margin-right:auto;
+    text-align: center;
+    border-radius: 2rem
+}

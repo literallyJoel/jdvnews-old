@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,600&display=swap');
+
+:root{
+  --jdred: #A50010;
+}
+#navibar{
+  background-color: var(--jdred);
+  font-family: 'Montserrat', sans-serif;
+}
+
+#profileButton{
+    background-color: transparent;
+    border: none;
+}
+
+#loginButton{
+  background-color: transparent;
+  border-color: white;
+  border-width: 0.11rem;
+}
+
+#loginButton:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}

@@ -11,6 +11,7 @@ const RSSFeed = () => {
   const [parsedFeeds, setParsedFeeds] = useState(null);
   const [summary, setSummary] = useState(null);
   const [pages, setPages] = useState(Array(feeds.length).fill(0));
+  const [customFeedsParsed, setCustomFeedsParsed] = useState(false);
 
   useEffect(() =>{
     async function authFeeds(){
@@ -18,7 +19,8 @@ const RSSFeed = () => {
         const _feeds = await getFeeds(keycloak.token);
         const _feedURLS = [];
         _feeds.map((feed) => _feedURLS.push(feed.FeedLink));
-        console.log(_feedURLS);
+        //Prevents the application from accidentally calling the summary function before the users custom feeds are shown
+        setCustomFeedsParsed(true);
         setFeeds(_feedURLS);
       }
     }
@@ -116,8 +118,12 @@ const RSSFeed = () => {
   //Once the feeds are parsed if the user is logged in it'll call the OpenAI API to get the summary
   useEffect(() => {
     const summarise = async () => {
-      const _summary = await getSummary(keycloak.token, parsedFeeds);
-      setSummary(_summary);
+      if(keycloak.authenticated && customFeedsParsed){
+        const _summary = await getSummary(keycloak.token, parsedFeeds);
+        setSummary(_summary);
+      }
+      
+      
     }
 
     summarise();
@@ -150,6 +156,7 @@ const RSSFeed = () => {
               <Card.Body>
                 <Card.Title>Today's News Roundup</Card.Title>
                 <Card.Text id="roundupsubheader">Powered by ChatGPT</Card.Text>
+                <Card.Text id="roundupsubheader">ChatGPT may sometimes have some innacurate information in its summaries.</Card.Text>
                 {summary ? (
                   <Card.Text>{summary}</Card.Text>
                 ) : (

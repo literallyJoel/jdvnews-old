@@ -7,7 +7,6 @@ const parser = new Parser();
 const mysql = require("mysql2");
 const Keycloak = require("keycloak-connect");
 const debug = require("debug");
-const { wrappingToken } = require("./vars");
 
 process.env.NODE_DEBUG = 'node-vault';
 //Vault role ID
@@ -54,8 +53,9 @@ async function vaultAuth() {
         });
 
         VaultClient.token = result.auth.client_token;
+        console.log(VaultClient.token);
 
-        console.log("Vault Authenticated")
+        console.log("Vault Authenticated");
 
 
     } catch (e) {
@@ -70,10 +70,11 @@ async function renewVaultAuth() {
     //renew the token
     const result = await VaultClient.tokenRenewSelf();
     VaultClient.token = result.auth.client_token;
+    console.log("Token Renewed");
 }
 
 //Renew the token every 30 minutes.
-const tokenRefreshInterval = setInterval(renewVaultAuth, 1800000);
+const tokenRefreshInterval = setInterval(renewVaultAuth, 180000);
 const getDB = async () => {
     //Gets the Database info from Vault
     try {
@@ -229,7 +230,7 @@ app.post("/getSummary", keycloak.protect(), async (req, res) => {
     const data = {
         "model": "gpt-3.5-turbo",
         "messages": [
-            { "role": "system", "content": "You are now a summary bot. When presented with a list of headlines, you will send a 1 paragraph summary of the headlines, in a friendly and conversational manner, in the style of a news presenter. Do not send a response until presented with a list of headlines to summarise. Do not add any additional informatiom outside of what you get from the headlines provided, the summary should include only information gained from the headlines. Do not welcome the user, send only the summary." },
+            { "role": "system", "content": "Your job is to summarise news headlines. You will recieve a list of headlines, and you should respond with a summary of these headlines in a friendly and conversational manor. You should not add any information to the summary that is not already in the headline, all information in the summaries should come directly from the headlines. The summary should be in paragraph format, and you should return only the summary with no greetings" },
             { "role": "user", "content": `${req.body.titles}` }
         ]
     };

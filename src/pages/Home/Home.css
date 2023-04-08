@@ -76,3 +76,20 @@
     color: white;
 
 }
+
+
+
+/*Had to do separate CSS for homepage git callout because position:absolute wasn't working properly.*/
+#gitcalloutHome{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#gitcalloutHome svg{
+    font-size: 1.6rem;
+    color: black;   
+}
+#gitcalloutHome a{
+    font-size: 1.2rem;
+    color: #A50010 !important;
+}

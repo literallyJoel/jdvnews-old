@@ -2,6 +2,7 @@ import "./Home.css"
 import { Container } from "react-bootstrap";
 import { useKeycloak } from "@react-keycloak/web";
 import RSSFeed from "./Components/RSSFeed";
+import {BsGithub}  from "react-icons/bs";
 const Home = () => {
     const { keycloak } = useKeycloak();
 
@@ -19,14 +20,16 @@ const Home = () => {
 
 
     return (
-        <Container>
+        <div>
             <div className="headerText">Today's News</div>
             <LoginBox />
 
             <Container>
                 <RSSFeed />
             </Container>
-        </Container>
+
+            <div id="gitcalloutHome"><a href="https://github.com/literallyJoel/jdvnews"><BsGithub />View this project on GitHub</a></div>
+        </div>
     )
 }
 

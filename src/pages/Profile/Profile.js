@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import AuthenticatedTemplate from "../../kcHelpers/AuthenticatedTemplate";
 import UnauthenticatedTemplate from "../../kcHelpers/UnauthenticatedTemplate";
 import { Button, Col, Container, Placeholder, Row, Table } from "react-bootstrap";
-
+import {BsGithub} from "react-icons/bs"
 import "./Profile.css";
 import { getFeeds } from "../../helpers/Helper";
 
@@ -61,7 +61,8 @@ const Profile = () => {
                             </div>
 
                         </Row>
-
+                        
+                        <div id="gitcallout"><a href="https://github.com/literallyJoel/jdvnews"><BsGithub />View this project on GitHub</a></div>
 
                     </>
                 ) : (

@@ -13,20 +13,27 @@ const RSSFeed = () => {
   const [pages, setPages] = useState(Array(feeds.length).fill(0));
   const [customFeedsParsed, setCustomFeedsParsed] = useState(false);
 
-  useEffect(() =>{
-    async function authFeeds(){
-      if(keycloak.authenticated){
+  useEffect(() => {
+    async function authFeeds() {
+      if (keycloak.authenticated) {
+       
         const _feeds = await getFeeds(keycloak.token);
         const _feedURLS = [];
         _feeds.map((feed) => _feedURLS.push(feed.FeedLink));
         //Prevents the application from accidentally calling the summary function before the users custom feeds are shown
         setCustomFeedsParsed(true);
-        setFeeds(_feedURLS);
+        if (_feedURLS.length !== 0) {
+          setFeeds(_feedURLS);
+        }else{
+          //We set it back to default to trigger the summary
+          setFeeds(["http://feeds.bbci.co.uk/news/rss.xml", "https://feeds.skynews.com/feeds/rss/home.xml", "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"])
+        }
+
       }
     }
 
     authFeeds();
-    
+
   }, [keycloak.authenticated])
   //When the page first loads, it calls the API to parse the feeds.
   useEffect(() => {
@@ -51,8 +58,8 @@ const RSSFeed = () => {
     return (
       <Pagination style={{ justifyContent: "center" }}>
 
-        {pages[index] === 0 ?  (<></>) : (
-        <Pagination.First onClick={() => handleClick(0, index)} />
+        {pages[index] === 0 ? (<></>) : (
+          <Pagination.First onClick={() => handleClick(0, index)} />
         )}
 
 
@@ -76,7 +83,7 @@ const RSSFeed = () => {
           </>
         )}
 
-        {pages[index] === (numberOfPages -1) ? (<></>) : (
+        {pages[index] === (numberOfPages - 1) ? (<></>) : (
           <>
             <Pagination.Next onClick={() => handleClick(pages[index] + 1, index)} />
           </>)
@@ -92,7 +99,7 @@ const RSSFeed = () => {
       <Container style={{ marginBottom: "2%" }}>
         <Row xs={1} sm={2} md={3} lg={3} className="g-4">
 
-          {parsedFeed.items.slice(pages[index]*cardsPerPage, (pages[index]*cardsPerPage) + cardsPerPage).map((newsItem) => (
+          {parsedFeed.items.slice(pages[index] * cardsPerPage, (pages[index] * cardsPerPage) + cardsPerPage).map((newsItem) => (
 
             <Col key={newsItem.guid}>
               <Card id="newsCard">
@@ -118,12 +125,10 @@ const RSSFeed = () => {
   //Once the feeds are parsed if the user is logged in it'll call the OpenAI API to get the summary
   useEffect(() => {
     const summarise = async () => {
-      if(keycloak.authenticated && customFeedsParsed){
+      if (keycloak.authenticated && customFeedsParsed) {
         const _summary = await getSummary(keycloak.token, parsedFeeds);
         setSummary(_summary);
       }
-      
-      
     }
 
     summarise();

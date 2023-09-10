@@ -2,7 +2,7 @@
 
 Mobile-Friendly News Aggregator build with React.
 
-WIP 
+This is no longer being developed as a new version written with HTMX and bun is planned.
 
 
 # Acknowledgements
